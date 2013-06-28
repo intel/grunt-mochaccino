@@ -1,8 +1,7 @@
-// this is to replace the rubbish Mocha grunt tasks I've tried which
+// this is to replace the Mocha grunt tasks I've tried which
 // use Mocha programmatically and lose all the helpful, colour-coded output
 // about which test failed and how; I've resorted to running the
 // command line mocha instead
-// NOTE this task requires that you have mocha installed
 module.exports = function (grunt) {
   var fs = require('fs');
   var path = require('path');

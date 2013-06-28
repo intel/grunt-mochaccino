@@ -5,7 +5,7 @@ module.exports = function (grunt) {
     mochaccino: {
       all: {
         mocha: 'mocha',
-        files: { src: 'mocha-tests/**.test.js' }
+        files: { src: 'test/**.test.js' }
       }
     }
   });
