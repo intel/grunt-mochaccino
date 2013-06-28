@@ -1,8 +1,8 @@
 {
   "name": "grunt-mochaccino",
-  "version": "0.0.1",
-  "description": "mocha runner for grunt which retains all mocha output",
-  "main": "index.js",
+  "version": "0.1.0",
+  "description": "mocha runner for grunt which keeps mocha output",
+  "main": "tasks/grunt-mochaccino.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
