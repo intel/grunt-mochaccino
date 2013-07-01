@@ -34,6 +34,8 @@ Contributions are welcome. Some examples of how you could help:
 
 # Getting started
 
+Note that grunt-mochaccino has only been tested on Linux (Fedora 17).
+
 You will need **Grunt ~0.4.0**.
 
 You will also need a global install of mocha:
