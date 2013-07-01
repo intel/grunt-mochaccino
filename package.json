@@ -1,6 +1,6 @@
 {
   "name": "grunt-mochaccino",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "mocha runner for grunt which keeps mocha output",
   "main": "tasks/grunt-mochaccino.js",
   "scripts": {
