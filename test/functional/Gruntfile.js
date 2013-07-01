@@ -27,8 +27,7 @@ module.exports = function (grunt) {
         blanket: blanketPath,
         files: { src: 'test/**.test.js' },
         reporter: 'html-cov',
-        reportDir: 'build',
-        browserCmd: 'google-chrome'
+        reportDir: 'build'
       }
     }
   });
