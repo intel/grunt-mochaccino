@@ -1,0 +1,16 @@
+{
+  "name": "foobar",
+  "version": "0.0.0",
+  "description": "ERROR: No README.md file found!",
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "grunt",
+    "blanket": {
+      "pattern": "src"
+    }
+  },
+  "license": "Apache v2"
+}

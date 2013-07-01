@@ -3,6 +3,8 @@
 // about which test failed and how; I've resorted to running the
 // command line mocha instead
 module.exports = function (grunt) {
+  'use strict';
+
   var fs = require('fs');
   var path = require('path');
   var spawn = require('child_process').spawn;
@@ -17,6 +19,7 @@ module.exports = function (grunt) {
     var done = this.async();
 
     var mocha = this.data.cmd || process.env.MOCHA || 'mocha';
+    var blanket = this.data.blanket || 'blanket';
     var browserCmd = this.data.browserCmd;
     var reporter = this.data.reporter || 'dot';
     var reportDir = this.data.reportDir || '.';
@@ -38,7 +41,7 @@ module.exports = function (grunt) {
 
     if (reporter === 'html-cov') {
       args.push('--require');
-      args.push('blanket');
+      args.push(blanket);
 
       var timestamp = grunt.template.date('yyyy-mm-dd_HHMMss');
       var covReportFilename = 'cov-' + timestamp + '.html';
@@ -47,7 +50,7 @@ module.exports = function (grunt) {
       var streamOpts = {
         flags: 'w',
         encoding: 'utf-8',
-        mode: 0666
+        mode: '0666'
       };
 
       covReportStream = fs.createWriteStream(covReportPath, streamOpts);

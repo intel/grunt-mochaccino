@@ -1,3 +1,5 @@
+# grunt-mochaccino
+
 A grunt plugin to run tests via command-line mocha.
 
 Other mocha plugins for grunt use the mocha library programmatically, which loses a lot of useful diagnostic information. This plugin is an alternative to those, instead using the command line tool to keep mocha's full output.
@@ -6,13 +8,33 @@ It also tries to make production of coverage reports simple, mainly by documenti
 
 Note that the configuration options available for the task are limited, as the aim of the plugin was to keep complexity low. Feature requests or patches are welcome, of course.
 
-# Licence
+# License
 
-Apache version 2 (see the <em>LICENSE</em> file).
+Apache version 2, copyright Intel Corporation Ltd. See <em>LICENSE</em> for more details.
+
+# Contributing
+
+Contributions are welcome. Some examples of how you could help:
+
+1.   Report bugs or make feature requests through [the issue tracker](https://github.com/01org/grunt-mochaccino/issues).
+
+2.   Fix bugs or add features, then make a pull request to have your code merged. The preferred approach is to make a github fork, write your code, and make a pull request for it to be merged into the grunt-mochaccino master branch. The [#Hacking] section explains a bit more about how to this.
+
+## <a name="Hacking"></a>Hacking
+
+1.   Make a fork of grunt-mochaccino on github.
+
+2.   Clone it to your development machine.
+
+3.   Modify the task code: currently it's in a single file, <em>tasks/grunt-mochaccino</em>.
+
+4.   Run the meagre test suite. There is a basic functional test in <em>test/functional</em> to check that the plugin mostly works. Run it by opening that directory and entering <code>grunt</code> at the command line. Feel free to add more tests...
+
+5.   Make a github pull request to have your branch merged into grunt-mochaccino master.
 
 # Getting started
 
-You will need grunt ~0.4.1.
+You will need **Grunt ~0.4.0**.
 
 You will also need a global install of mocha:
 
@@ -42,24 +64,21 @@ Note that grunt-mochaccino is a multi-task, so you can configure it to run unit 
 
 ## Options
 
-### cmd
-
-Type: string
-Default: MOCHA environment variable, if set; if not, "mocha"
-
-The mocha command to run. Should either be on your path (e.g. "mocha") or an absolute path (e.g. "/home/bilbo/bin/mocha").
-
 ### files
 
-Type: [grunt file spec](http://gruntjs.com/configuring-tasks#files)
-Mandatory
+type: [grunt file spec](http://gruntjs.com/configuring-tasks#files), mandatory
 
 Specifies the test files to run with mocha.
 
+### cmd
+
+type: string, default: <code>MOCHA</code> environment variable, if set; if not, "mocha"
+
+The mocha command to run. Should either be on your path (e.g. "mocha") or an absolute path (e.g. "/home/bilbo/bin/mocha").
+
 ### reporter
 
-Type: string
-Default: "dot"
+type: string, default: "dot"
 
 The mocha reporter to use. Note that if you're using fancy reporters, you will need to install them into your project yourself.
 
@@ -67,15 +86,13 @@ Using the "html-cov" reporter exposes more options to do with generating a cover
 
 ### reportDir
 
-Type: string
-Default: "."
+type: string, default: "."
 
 The directory to output coverage reports to.
 
 ### browserCmd
 
-Type: string
-Default: null
+type: string, default: null
 
 Command to start a browser from the command line.
 
@@ -83,15 +100,15 @@ If set, and reporter == "html-cov", grunt-mochaccino will attempt to open the ge
 
 Note that the command is fed directly to the command line, so you need to either specify an absolute path (e.g. "/home/bilbo/bin/google-chrome") or a command on your path (e.g. "google-chrome", "firefox").
 
-# Coverage reports
+# Producing coverage reports with grunt-mochaccino
 
-This plugin will also write coverage reports to a directory. To use this functionality you will need to do the following in your project:
+This plugin will also write coverage reports to a configurable directory. To use this functionality you will need to do the following in your project:
 
 1.  Install blanket:
 
         npm install blanket --save-dev
 
-    Note that I've tested this on my own projects with version 1.1.5 of blanket.
+    Note that I've tested this on my own projects with the current development version of blanket.
 
 2.  Configure blanket in <em>package.json</em> inside the <code>scripts</code> property. For example, if your project is in the <em>myproject</em> directory, and the source under test is in <em>myproject/src</em>, your <em>package.json</em> should contain properties like:
 
