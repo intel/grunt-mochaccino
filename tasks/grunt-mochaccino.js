@@ -21,6 +21,7 @@
 module.exports = function (grunt) {
   'use strict';
 
+  var os = require('os');
   var fs = require('fs');
   var path = require('path');
   var spawn = require('child_process').spawn;
@@ -50,7 +51,18 @@ module.exports = function (grunt) {
       grunt.file.mkdir(reportDir);
     }
 
-    var args = ['-R', reporter];
+    var args = [];
+
+    // because mocha is a batch file, we have to run it via cmd.exe
+    // when on Windows
+    var onWindows = /win/.test(os.platform());
+    if (onWindows) {
+      mocha = 'cmd.exe';
+      args = ['/c', 'mocha'];
+    }
+
+    // add reporter
+    args = args.concat(['-R', reporter]);
 
     var mochaOptions = {stdio: 'inherit'};
     var covReportStream = null;
