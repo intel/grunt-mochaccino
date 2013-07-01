@@ -22,21 +22,25 @@ Contributions are welcome. Some examples of how you could help:
 
 ## <a name="Hacking"></a>Hacking
 
-1.   Make a fork of grunt-mochaccino on github.
+1.  Make a fork of grunt-mochaccino on github.
 
-2.   Clone it to your development machine.
+2.  Clone it to your development machine.
 
-3.   Modify the task code: currently it's in a single file, <em>tasks/grunt-mochaccino</em>.
+3.  Modify the task code: currently it's in a single file, <em>tasks/grunt-mochaccino</em>.
 
-4.   Run the meagre test suite. There is a basic functional test in <em>test/functional</em> to check that the plugin mostly works. Run it by opening that directory and entering <code>grunt</code> at the command line. Feel free to add more tests...
+4.  Run the meagre test suite. There is a basic functional test in <em>test/functional</em> to check that the plugin mostly works. Run it by opening that directory and entering <code>grunt</code> at the command line. Feel free to add more tests...
 
-5.   Make a github pull request to have your branch merged into grunt-mochaccino master.
+5.  Make a github pull request to have your branch merged into grunt-mochaccino master.
 
 # Getting started
 
-Note that grunt-mochaccino has only been tested on Linux (Fedora 17).
+grunt-mochaccino has been tested on:
 
-You will need **Grunt ~0.4.0**.
+*   Fedora 17 Linux (64bit)
+
+*   Windows 7 Enterprise (64bit)
+
+You need **Grunt ~0.4.1**.
 
 You will also need a global install of mocha:
 
