@@ -100,7 +100,15 @@ If set, and reporter == "html-cov", grunt-mochaccino will attempt to open the ge
 
 Note that the command is fed directly to the command line, so you need to either specify an absolute path (e.g. "/home/bilbo/bin/google-chrome") or a command on your path (e.g. "google-chrome", "firefox").
 
-# Producing coverage reports with grunt-mochaccino
+### blanket
+
+type: string, default: 'blanket'
+
+The path to the [blanket](http://blanketjs.org/) node module. In most contexts, the default should be OK, but you may need to set it manually if you're running tests from a subdirectory (as is the case with grunt-mochaccino's own tests; see <em>test/functional/Gruntfile.js</em>).
+
+See [Producing coverage reports](#coverage) for more details about coverage reporting.
+
+# <a name="coverage"></a>Producing coverage reports
 
 This plugin will also write coverage reports to a configurable directory. To use this functionality you will need to do the following in your project:
 
@@ -110,7 +118,7 @@ This plugin will also write coverage reports to a configurable directory. To use
 
     Note that I've tested this on my own projects with the current development version of blanket.
 
-2.  Configure blanket in <em>package.json</em> inside the <code>scripts</code> property. For example, if your project is in the <em>myproject</em> directory, and the source under test is in <em>myproject/src</em>, your <em>package.json</em> should contain properties like:
+2.  Configure blanket in <em>package.json</em> by adding a <code>blanket</code> property to the the <code>scripts</code> object. For example, if your project is in the <em>myproject</em> directory, and the source under test is in <em>myproject/src</em>, your <em>package.json</em> should look something like this:
 
         {
           "name": "myproject",
@@ -124,7 +132,7 @@ This plugin will also write coverage reports to a configurable directory. To use
 
     Note the slightly counter-intuitive <code>"myproject/src"</code>. This is because blanket compares the paths of files imported by <code>require()</code> against this pattern: if you just use <code>"src"</code> as the pattern, you might find that blanket produces coverage statistics for other <code>src</code> directories in your project (e.g. inside <em>node_modules</em>).
 
-3.  In your mochaccino task configuration in <em>Gruntfile.js</em>, set the reporter to <code>html-cov</code>:
+3.  In your mochaccino task configuration in <em>Gruntfile.js</em>, set the reporter to <code>'html-cov'</code>:
 
         grunt.initConfig({
           // ... other task configuration ...
@@ -142,9 +150,9 @@ This plugin will also write coverage reports to a configurable directory. To use
           }
         });
 
-    grunt-mochaccino uses standard grunt file sources, so you can set the <code>files</code> property how you like. The example above shows how to configure a cov task for the <em>test/unit/</em> and <em>test/integration/</em> directories.
+    grunt-mochaccino uses standard grunt file sources, so you can set the <code>files</code> property how you like. The example above shows how to configure a coverage task <code>mochaccino:cov</code> for the <em>test/unit/</em> and <em>test/integration/</em> directories.
 
-    <code>browserCmd</code> is an optional property specifying the command to start a browser in your environment. If set, grunt-mochaccino will open the browser at the generated coverage report.
+    <code>browserCmd</code> is an optional property specifying the command to start a browser in your environment. If set, grunt-mochaccino will open the browser with the path to the generated coverage report.
 
 4.  Run the task. With the above configuration, you'd do:
 
