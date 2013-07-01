@@ -1,13 +1,9 @@
 require('chai').should();
 
-var bar = require('../src/bar');
+var foo = require('../src/foo');
 
-describe('bar', function () {
-  it('should tell a joke', function () {
-    bar(true).should.equal('Man walks into a bar...');
+describe('foo', function () {
+  it('should punish the unfortunate', function () {
+    foo(false).should.equal('You will fall into a hole');
   });
-
-  it('should be serious when required', function () {
-    bar().should.equal('This is a serious business');
-  });
-})
+});
