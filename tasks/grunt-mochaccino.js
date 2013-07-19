@@ -26,6 +26,8 @@ module.exports = function (grunt) {
   var path = require('path');
   var spawn = require('child_process').spawn;
 
+  var defaultMocha = path.join(__dirname, '../node_modules/mocha/bin/mocha');
+
   // options
   // reporter: set the name of the mocha reporter; if 'html-cov'
   // a coverage report is produced (requires that the js code has
@@ -35,7 +37,7 @@ module.exports = function (grunt) {
   grunt.registerMultiTask('mochaccino', 'Banal mocha runner', function () {
     var done = this.async();
 
-    var mocha = this.data.cmd || process.env.MOCHA || 'mocha';
+    var mocha = this.data.cmd || process.env.MOCHA || defaultMocha;
     var blanket = this.data.blanket || 'blanket';
     var browserCmd = this.data.browserCmd;
     var reporter = this.data.reporter || 'dot';
