@@ -57,10 +57,10 @@ module.exports = function (grunt) {
 
     // because mocha is a batch file, we have to run it via cmd.exe
     // when on Windows
-    var onWindows = /win/.test(os.platform());
+    var onWindows = /^win/.test(os.platform());
     if (onWindows) {
-      mocha = 'cmd.exe';
-      args = ['/c', 'mocha'];
+      args = [mocha];
+      mocha = 'node';
     }
 
     // add reporter
