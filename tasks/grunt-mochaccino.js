@@ -55,12 +55,12 @@ module.exports = function (grunt) {
 
     var args = [];
 
-    // if we're on Windows and using the defaultMocha installed with
-    // this grunt task, we need to run it via node if we're in the cmd
-    // shell
+    // when on Windows and using the mocha module embedded in
+    // this grunt task
     var onWindows = /^win/.test(os.platform());
     if (onWindows && mocha === defaultMocha) {
-      mocha = 'node ' + mocha;
+      args = [mocha];
+      mocha = 'node';
     }
 
     // add reporter
