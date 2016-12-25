@@ -62,7 +62,7 @@ The mochaccino task calls the command-line mocha runner, passing any required ex
 
 By default, grunt-mochaccino uses its own version of mocha (installed under <em>node_modules/mocha/bin/mocha</em>) to run the specified tests. However, you can override this with the <code>cmd</code> option if necessary (see below).
 
-While grunt-mochaccino doesn't provide all the mocha command line switches as configuration options, you can still set these in a [mocha.opts file](http://visionmedia.github.io/mocha/#mocha.opts) if you wish. The example in <em>test/functional/</em> shows how to do this (see the <em>test/mocha.opts</em> file inside this example, which turns off color for the reports on the console).
+While grunt-mochaccino doesn't provide all the mocha command line switches as configuration options, you can still set these in a [mocha.opts file](http://mochajs.org/#mochaopts) if you wish. The example in <em>test/functional/</em> shows how to do this (see the <em>test/mocha.opts</em> file inside this example, which turns off color for the reports on the console).
 
 Note that grunt-mochaccino is a multi-task, so you can configure it to run unit tests separately from integration tests etc.
 
